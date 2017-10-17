@@ -3,9 +3,7 @@ import {
 	string,
 	number,
 	bool,
-	array,
 	func,
-	node,
 	oneOfType
 } from 'prop-types'
 import noop from 'noop3'
@@ -44,7 +42,6 @@ export default class Checkbox extends PureComponent {
 			children,
 			checked,
 			value,
-			onInput,
 		} = this.props
 
 		return (
