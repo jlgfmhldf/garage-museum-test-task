@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 import AppContainer from './containers/App/App'
-import './styles/index.css'
+import './styles/index.pcss'
 
 const store = configureStore()
 

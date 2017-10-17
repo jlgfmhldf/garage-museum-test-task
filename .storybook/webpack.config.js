@@ -16,7 +16,7 @@ module.exports = {
     ],
     rules: [
         {
-            test: /\.css$/,
+            test: /\.pcss$/,
             use: [
                 'style-loader',
                 'css-loader?modules',

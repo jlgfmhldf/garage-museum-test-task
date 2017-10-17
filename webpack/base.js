@@ -30,14 +30,14 @@ module.exports = {
 		}),
 		new StyleLintPlugin({
 			files: [
-				'./app/components/**/*.css',
-				'./app/styles/*.css'
+				'./app/components/**/*.pcss',
+				'./app/styles/*.pcss'
 			], //TODO
 			configFile: './.stylelintrc',
 		}),
 		new ExtractTextPlugin('style.css'),
 		new PostCSSAssetsPlugin({
-			test: /\.css$/,
+			test: /\.pcss$/,
 			log: true,
 			plugins: [
 				// Pack same CSS media query rules into one media query rule
@@ -78,7 +78,7 @@ module.exports = {
 				}
 			],
 		}, {
-			test: /\.css$/,
+			test: /\.pcss$/,
 			use: ExtractTextPlugin.extract({
 				use: [
 					'css-loader?modules',
