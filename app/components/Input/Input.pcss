@@ -1,3 +1,5 @@
+@import '../../styles/variables.pcss';
+
 .Input {
 	display: block;
 }
@@ -14,7 +16,7 @@
 	color: #212121;
 
 	&_error {
-		border-color: #fc0d1b;
+		border-color: var(--red);
 	}
 	
 	&:focus {
@@ -34,5 +36,5 @@
 	font-size: 15px;
 	line-height: 1.33;
 	text-align: right;
-	color: #fc0d1b;
+	color: var(--red);
 }

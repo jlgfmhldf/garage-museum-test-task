@@ -5,9 +5,10 @@ import Input from '../Input'
 
 const defaultKnobs = () => ({
 	value: text('Value', 'Анастасия'),
-	error: boolean('Error', false),
 	placeholder: text('Placeholder', 'Ваше имя'),
-	errorText: text('Error text', 'Обязательное поле')
+	errorText: text('Error text', 'Обязательное поле'),
+	error: boolean('Error', false),
+	required: boolean('Required', false)
 })
 
 storiesOf('Input', module)

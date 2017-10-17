@@ -35,7 +35,7 @@ module.exports = {
 		{
 			type: 'add',
 			path: `./app/components/{{properCase name}}/{{properCase name}}.css`,
-			templateFile: './Component.css.hbs',
+			templateFile: './Component.pcss.hbs',
 			abortOnFail: true,
 		},
 		{

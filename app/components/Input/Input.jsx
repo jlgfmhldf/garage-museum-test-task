@@ -16,6 +16,7 @@ export default class Input extends PureComponent {
 		placeholder: string,
 		errorText: string,
 		error: bool,
+		required: bool,
 	}
 
 	static defaultProps = {
@@ -24,7 +25,7 @@ export default class Input extends PureComponent {
 
 	render() {
 		const {
-			value, placeholder,
+			value, placeholder, required,
 			error, errorText
 		} = this.props
 
@@ -35,7 +36,8 @@ export default class Input extends PureComponent {
 						[`${s.Input__input_error}`]: error,
 					})}
 					value={value}
-					placeholder={placeholder}
+					placeholder={required ? `${placeholder}*`: placeholder}
+					required={required}
 				/>
 				{error && errorText && <span
 					className={s.Input__errorText}
