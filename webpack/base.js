@@ -76,7 +76,15 @@ module.exports = {
 			}),
 		},
 		{
-			test: /\.(eot|svg|ttf|woff|woff2)$/,
+			test: /\.svg$/,
+			use: [
+				{
+					loader: 'svg-sprite-loader',
+				},
+			],
+		},
+		{
+			test: /\.(eot|ttf|woff|woff2)$/,
 			loader: 'url-loader',
 			options: {
 				limit: 1,
@@ -85,5 +93,5 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.js', '.jsx'],
-	}
+	},
 }

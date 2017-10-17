@@ -12,6 +12,7 @@ import noop from 'noop3'
 import cn from 'classnames'
 
 import s from './Checkbox.pcss'
+import '../../icons/tick.svg'
 
 export default class Checkbox extends PureComponent {
 	static propTypes = {
@@ -63,6 +64,11 @@ export default class Checkbox extends PureComponent {
 					})}
 					htmlFor={id}
 				>
+					<span className={s.Checkbox__tick}>
+						<svg>
+							<use xlinkHref='#tick' />
+						</svg>
+					</span>
 					{children && <span
 						className={s.Checkbox__content}
 					>
