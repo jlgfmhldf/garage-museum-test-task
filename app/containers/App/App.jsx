@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import Test from '../../components/Test'
+import Input from '../../components/Input'
 
 import {
 	testAction,
@@ -24,9 +24,7 @@ export default class App extends PureComponent {
 	render() {
 		return (
 			<div>
-				<Test>
-					Hello!!!
-				</Test>
+				<Input />
 			</div>
 		)
 	}

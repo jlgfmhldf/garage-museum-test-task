@@ -1,0 +1,38 @@
+.Input {
+	display: block;
+}
+
+.Input__input {
+	display: block;
+	width: 100%;
+	padding: 19px 16px;
+	height: 52px;
+	border: solid 1px #cdcdcd;
+	box-sizing: border-box;
+	font-family: sans-serif;  /* TODO */
+	font-size: 17px;
+	color: #212121;
+
+	&_error {
+		border-color: #fc0d1b;
+	}
+	
+	&:focus {
+		border-color: #212121;
+		outline: none;
+	}
+	
+	&::placeholder {
+		color: #9a9a9a;
+	}
+}
+
+.Input__errorText {
+	display: block;
+	margin-top: 8px;
+	font-family: sans-serif; /* TODO */
+	font-size: 15px;
+	line-height: 1.33;
+	text-align: right;
+	color: #fc0d1b;
+}

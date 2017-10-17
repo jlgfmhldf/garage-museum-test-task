@@ -18,6 +18,7 @@
   "pre-commit": "lint:changed",
   "browserslist": "last 2 versions",
   "dependencies": {
+    "classnames": "^2.2.5",
     "noop3": "^999.999.999",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
