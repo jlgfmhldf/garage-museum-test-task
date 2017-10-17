@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import Input from '../../components/Input'
+import Button from '../../components/Button'
+import Checkbox from '../../components/Checkbox'
 
 import {
 	testAction,
@@ -25,6 +27,8 @@ export default class App extends PureComponent {
 		return (
 			<div>
 				<Input />
+				<Button>Оплатить</Button>
+				<Checkbox>Да / нет </Checkbox>
 			</div>
 		)
 	}

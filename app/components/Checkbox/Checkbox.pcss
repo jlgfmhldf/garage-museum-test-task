@@ -1,0 +1,50 @@
+@import '../../styles/variables.pcss';
+@import '../../styles/fonts.pcss';
+
+.Checkbox {
+	display: block;
+	width: 100%;
+}
+
+.Checkbox__label {
+	position: relative;
+	padding-left: 40px;
+	display: flex;
+	align-items: flex-end;
+	height: 24px;
+	font-size: 14px;
+	line-height: 1;
+	user-select: none;
+	cursor: pointer;
+	
+	&::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		box-sizing: border-box;
+		size: 24px;
+		background-color: var(--white);
+		border: 1px solid #ccc;
+		content: ''
+	}
+}
+
+.Checkbox__input {
+	position: absolute;
+	margin: 0;
+	overflow: visible;
+	height: 0;
+	width: 0;
+	border: 0;
+	clip: rect(0 0 0 0);
+}
+
+.Checkbox__content {
+	display: block;
+	font-size: 17px;
+	text-align: left;
+	color: #4d4d4d;
+	font-family: var(--helveticaNeueCyr);
+	line-height: 1;
+}

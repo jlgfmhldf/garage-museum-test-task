@@ -1,13 +1,17 @@
+@import '../../styles/variables.pcss';
+
 .Button {
 	display: block;
 	height: 48px;
-	padding: 0 25px;
+	padding-left: 25px;
+	padding-right: 25px;
 	background-color: #212121;
 	border-style: none;
-	color: #fff;
+	color: var(--white);
 	text-align: center;
 	font-size: 17px;
-	font-family: sans-serif; /* TODO */
+	line-height: 48px;
+	font-family: var(--helveticaNeueCyr);
 	cursor: pointer;
 	
 	&_disabled {

@@ -1,11 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
-const mqpacker = require('css-mqpacker')
-const cssnano = require('cssnano')
 const StyleLintPlugin = require('stylelint-webpack-plugin') //TODO
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const PostCSSAssetsPlugin = require('postcss-assets-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const NODE_ENV = process.env.NODE_ENV || 'development'
 const isDevelopment = NODE_ENV === 'development'
 const isProd = NODE_ENV === 'production'
@@ -39,19 +36,11 @@ module.exports = {
 		new PostCSSAssetsPlugin({
 			test: /\.pcss$/,
 			log: true,
-			plugins: [
-				// Pack same CSS media query rules into one media query rule
-				mqpacker,
-				cssnano({
-					preset: 'default'
-				}),
-			],
 		}),
 		new webpack.DefinePlugin({
 			__DEV__: isDevelopment,
 			__PROD__: isProd,
 		}),
-		new BundleAnalyzerPlugin(),
 	],
 	devServer: {
 		inline: true

@@ -5,8 +5,8 @@ import {
 	func,
 } from 'prop-types'
 import noop from 'noop3'
-
 import cn from 'classnames'
+
 import s from './Input.pcss'
 
 export default class Input extends PureComponent {
