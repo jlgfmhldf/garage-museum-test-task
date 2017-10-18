@@ -1,6 +1,6 @@
 import webpack from 'webpack'
 import baseConfig from '../base'
-import BabiliPlugin from 'babili-webpack-plugin'
+import Minify from 'babel-minify-webpack-plugin'
 
 export default {
 	...baseConfig,
@@ -11,7 +11,10 @@ export default {
 				'NODE_ENV': JSON.stringify('production')
 			}
 		}),
-		new BabiliPlugin(),
+		new Minify({}, {
+			test: /\.jsx?$/,
+			comments: false,
+		}),
 	]
 }
 
