@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import Input from '../../components/Input'
-import Button from '../../components/Button'
-import Checkbox from '../../components/Checkbox'
+
+import SubscriptionPopup from '../../components/SubscriptionPopup'
+import ResultPopup from '../../components/ResultPopup'
+
+import s from './App.pcss'
 
 import {
 	testAction,
@@ -25,10 +27,10 @@ export default class App extends PureComponent {
 
 	render() {
 		return (
-			<div>
-				<Input />
-				<Button>Оплатить</Button>
-				<Checkbox>Да / нет </Checkbox>
+			<div className={s.App}>
+				<div className={s.App__popup}>
+					<SubscriptionPopup/>
+				</div>
 			</div>
 		)
 	}
