@@ -51,7 +51,7 @@ module.exports = {
 			exclude: /node_modules/,
 			include: [path.resolve(__dirname, '../app')],
 			use: [
-				'react-hot-loader',
+				'react-hot-loader/webpack',
 				{
 					loader: 'babel-loader',
 					options: {

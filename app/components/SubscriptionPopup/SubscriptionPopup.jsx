@@ -8,6 +8,7 @@ import {
 	node,
 } from 'prop-types'
 import noop from 'noop3'
+import { Field, reduxForm } from 'redux-form'
 
 import Popup from '../../components/Popup'
 import Input from '../../components/Input'
@@ -16,6 +17,10 @@ import Divider from '../../components/Divider'
 import Button from '../../components/Button'
 
 import s from './SubscriptionPopup.pcss'
+
+@reduxForm({
+	form: 'subscribtion',
+})
 
 export default class SubscriptionPopup extends PureComponent {
 	static propTypes = {
