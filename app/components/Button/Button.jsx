@@ -11,6 +11,7 @@ import s from './Button.pcss'
 
 export default class Button extends PureComponent {
 	static propTypes = {
+		type: string,
 		disabled: bool,
 		children: string,
 		onClick: func,
@@ -26,6 +27,7 @@ export default class Button extends PureComponent {
 			children,
 			disabled,
 			onClick,
+			type,
 		} = this.props
 
 		return (
@@ -34,6 +36,7 @@ export default class Button extends PureComponent {
 					[`${s.Button_disabled}`]: disabled,
 				})}
 				onClick={onClick}
+				type={type}
 			>
 				{children}
 			</button>

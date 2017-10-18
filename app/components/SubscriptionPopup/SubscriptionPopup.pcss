@@ -1,0 +1,42 @@
+@import '../../styles/variables.pcss';
+@import '../../styles/fonts.pcss';
+
+.SubscriptionPopup {
+	display: block;
+	width: 816px;
+}
+
+.SubscriptionPopup__inputs {
+	display: flex;
+	margin-bottom: 4px;
+}
+
+.SubscriptionPopup__input {
+	display: block;
+	width: 100%;
+	
+	&:not(:last-child) {
+		margin-right: 48px;
+	}
+}
+
+.SubscriptionPopup__checkbox {
+	margin-top: 24px;
+}
+
+.SubscriptionPopup__grayText {
+	margin-top: 27px;
+	font-size: 12px;
+	font-family: var(--helveticaNeueCyr);
+	line-height: 1.42;
+	color: #999;
+}
+
+.SubscriptionPopup__divider {
+	margin-y: 38px 39px;
+}
+
+.SubscriptionPopup__button {
+	display: flex;
+	justify-content: flex-end;
+}
