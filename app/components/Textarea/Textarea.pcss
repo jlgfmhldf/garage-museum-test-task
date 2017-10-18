@@ -1,0 +1,22 @@
+@import '../../styles/variables.pcss';
+@import '../../styles/fonts.pcss';
+
+.Textarea {
+	display: block;
+	padding: 15px 12px;
+	border: solid 1px #ccc;
+	font-size: 17px;
+	font-family: var(--helveticaNeueCyr);
+	line-height: 1.41;
+	color: #212121;
+	resize: none;
+	
+	&::placeholder {
+		color: #999;
+	}
+	
+	&:focus {
+		border-color: #212121;
+		outline: none;
+	}
+}
