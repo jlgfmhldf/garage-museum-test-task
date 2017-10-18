@@ -6,6 +6,7 @@
 }
 
 .Popup__title {
+	position: relative;
 	background-color: #f3f3f3;
 	padding-y: 31px 25px;
 	padding-x: 48px;
@@ -17,7 +18,6 @@
 	letter-spacing: 0.5px;
 	text-align: left;
 	color: #262626;
-	
 }
 
 .Popup__content {
@@ -27,4 +27,25 @@
 
 .Popup__close {
 	display: block;
+	position: absolute;
+	top: 29px;
+	right: 47px;
+	size: 18px;
+	cursor: pointer;
+	
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		background: #3e3e3e;
+		size: 2px 24px;
+	}
+	
+	&::before {
+		transform: rotate(45deg) translate(3px, -8px);
+	}
+	
+	&::after {
+		transform: rotate(-45deg) translate(25px, -14px);
+	}
 }
