@@ -37,6 +37,7 @@ export default class Button extends PureComponent {
 				})}
 				onClick={onClick}
 				type={type}
+				disabled={disabled}
 			>
 				{children}
 			</button>

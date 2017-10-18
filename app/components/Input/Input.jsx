@@ -11,22 +11,29 @@ import s from './Input.pcss'
 
 export default class Input extends PureComponent {
 	static propTypes = {
-		onInput: func,
 		value: string,
 		placeholder: string,
+		name: string,
+		type: string,
 		errorText: string,
 		error: bool,
 		required: bool,
+		onInput: func,
+		onChange: func,
 	}
 
 	static defaultProps = {
 		onInput: noop,
+		onChange: noop,
+		type: 'text'
 	}
 
 	render() {
 		const {
-			value, placeholder, required,
-			error, errorText
+			value, placeholder, name, type,
+			required,
+			error, errorText,
+			onInput, onChange
 		} = this.props
 
 		return (
@@ -36,8 +43,11 @@ export default class Input extends PureComponent {
 						[`${s.Input__input_error}`]: error,
 					})}
 					value={value}
+					name={name}
+					type={type}
 					placeholder={required ? `${placeholder}*`: placeholder}
-					required={required}
+					onInput={onInput}
+					onChange={onChange}
 				/>
 				{error && errorText && <span
 					className={s.Input__errorText}

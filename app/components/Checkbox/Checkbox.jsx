@@ -29,19 +29,13 @@ export default class Checkbox extends PureComponent {
 		onChange: noop,
 	}
 
-	handleChange = event => {
-		const { onChange, id, name } = this.props
-		const { checked } = event.target
-
-		onChange({ id, name, checked })
-	}
-
 	render() {
 		const {
 			id,
 			children,
 			checked,
 			value,
+			onChange,
 		} = this.props
 
 		return (
@@ -53,7 +47,7 @@ export default class Checkbox extends PureComponent {
 					name={id}
 					value={value}
 					checked={checked}
-					onChange={this.handleChange}
+					onChange={onChange}
 				/>
 				<label
 					className={cn(s.Checkbox__label, {

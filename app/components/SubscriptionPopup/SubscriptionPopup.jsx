@@ -9,6 +9,7 @@ import {
 } from 'prop-types'
 import noop from 'noop3'
 import { Field, reduxForm } from 'redux-form'
+import validate from '../../utlis/validateForm'
 
 import Popup from '../../components/Popup'
 import Input from '../../components/Input'
@@ -18,10 +19,14 @@ import Button from '../../components/Button'
 
 import s from './SubscriptionPopup.pcss'
 
-@reduxForm({
-	form: 'subscribtion',
-})
+const requiredValues = [
+	'name',
+]
 
+@reduxForm({
+	form: 'subscription',
+	validate: validate(requiredValues),
+})
 export default class SubscriptionPopup extends PureComponent {
 	static propTypes = {
 		onClose: func,
@@ -33,11 +38,50 @@ export default class SubscriptionPopup extends PureComponent {
 		onSubmit: noop,
 	}
 
+	renderField = ({
+		input,
+		label,
+		type,
+		required,
+		placeholder,
+		meta: { touched, error, warning }
+ }) => {
+		return <Input
+			placeholder={placeholder}
+			required={required}
+			name={name}
+			error={touched && !!error}
+			errorText={error}
+			onChange={input.onChange}
+			onInput={input.onInput}
+		/>
+	}
+
+	renderCheckbox = ({ text, id, input }) => {
+		return <div className={s.SubscriptionPopup__checkbox}>
+			<Checkbox
+				id={id}
+				checked={input.checked}
+				onChange={input.onChange}
+			>
+				{text}
+			</Checkbox>
+		</div>
+
+	}
+
 	render() {
 		const {
+			valid,
+			invalid,
 			onClose,
 			onSubmit,
+			handleSubmit,
 		} = this.props
+
+		const submit = (values, test) => {
+			console.log('values', values)
+		}
 
 		return (
 			<div className={s.SubscriptionPopup}>
@@ -45,29 +89,47 @@ export default class SubscriptionPopup extends PureComponent {
 					onClose={onClose}
 					title='подписка на рассылку музея «гараж»'
 				>
-					<form action="">
+					<form onSubmit={handleSubmit(submit)}>
 						<div className={s.SubscriptionPopup__inputs}>
 							<div className={s.SubscriptionPopup__input}>
-								<Input
+								<Field
+									name='name'
 									placeholder='Ваше имя'
+									component={this.renderField}
+									type='text'
 									required
 								/>
 							</div>
 							<div className={s.SubscriptionPopup__input}>
-								<Input
+								<Field
+									name='email'
 									placeholder='Ваш e-mail'
+									component={this.renderField}
+									type='email'
 								/>
 							</div>
 						</div>
-						<div className={s.SubscriptionPopup__checkbox}>
-							<Checkbox>Еженедельная рассылка Музея «Гараж»</Checkbox>
-						</div>
-						<div className={s.SubscriptionPopup__checkbox}>
-							<Checkbox>События для детей</Checkbox>
-						</div>
-						<div className={s.SubscriptionPopup__checkbox}>
-							<Checkbox>Другие события</Checkbox>
-						</div>
+						<Field
+							component={this.renderCheckbox}
+							text='Еженедельная рассылка Музея «Гараж»'
+							id={1}
+							type='checkbox'
+							name='checkbox1'
+						/>
+						<Field
+							component={this.renderCheckbox}
+							text='События для детей'
+							id={2}
+							type='checkbox'
+							name='checkbox2'
+						/>
+						<Field
+							component={this.renderCheckbox}
+							text='Другие события'
+							id={3}
+							type='checkbox'
+							name='checkbox3'
+						/>
 						<div className={s.SubscriptionPopup__grayText}>
 							* Поля со звездочкой обязательны для заполнения
 						</div>
@@ -78,6 +140,7 @@ export default class SubscriptionPopup extends PureComponent {
 							<Button
 								type='submit'
 								onClick={onSubmit}
+								disabled={invalid}
 							>
 								Подписаться
 							</Button>
