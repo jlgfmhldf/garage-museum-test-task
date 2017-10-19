@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react'
 import {
 	string,
-	number,
-	bool,
-	array,
 	func,
 	node,
 	oneOfType,
@@ -28,10 +25,12 @@ export default class ResultPopup extends PureComponent {
 			'error',
 		]),
 		onClick: func,
+		onClose: func,
 	}
 
 	static defaultProps = {
 		onClick: noop,
+		onClose: noop,
 		icon: 'success',
 	}
 
@@ -43,12 +42,14 @@ export default class ResultPopup extends PureComponent {
 			buttonText,
 			icon,
 			onClick,
+			onClose,
 		} = this.props
 
 		return (
 			<div className={s.ResultPopup}>
 				<Popup
 					title={popupTitle}
+					onClose={onClose}
 				>
 					<div className={s.ResultPopup__content}>
 						<div className={cn(s.ResultPopup__icon, {

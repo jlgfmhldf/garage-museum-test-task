@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import SubscriptionPopup from '../../components/SubscriptionPopup'
 import ResultPopup from '../../components/ResultPopup'
+import SurveyPopup from '../../components/SurveyPopup'
 
 import s from './App.pcss'
 
@@ -37,6 +38,10 @@ export default class App extends PureComponent {
 			isShowSubscriptionResult,
 			isShowSurveyPopup,
 			isShowSurveyResult,
+			showSubscriptionPopup,
+			showSubscriptionPopupResult,
+			showSurveyPopup,
+			showSurveyPopupResult,
 		} = this.props
 
 		return (
@@ -44,6 +49,25 @@ export default class App extends PureComponent {
 				<div className={s.App__popup}>
 					{isShowSubscriptionPopup && <SubscriptionPopup
 						submitFunc={this.props.showSubscriptionPopupResult}
+					/>}
+					{isShowSubscriptionResult && <ResultPopup
+						popupTitle='подписка на рассылку музея “гараж”'
+						title='Подписка оформлена!'
+						text={
+							<p>Спасибо за то, что подписались на рассылку Музея «Гараж»!
+								<b>Пройдите короткий опрос, чтобы получить скидку.</b>
+							</p>
+						}
+						buttonText='Пройти опрос'
+						onClick={showSurveyPopup}
+					/>}
+					{isShowSurveyPopup && <SurveyPopup />}
+					{isShowSurveyResult && <ResultPopup
+						popupTitle='подписка на рассылку музея “гараж”'
+						title='Анкета отправлена!'
+						text='Спасибо за участие, к вам на почту придет письмо с деталями вашей скидки'
+						buttonText='Закрыть'
+						// onClick={showSurveyPopup}
 					/>}
 				</div>
 			</div>

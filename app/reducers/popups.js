@@ -32,13 +32,14 @@ export default function (state = defaultState, { type, payload }) {
 		}
 	}
 
-		// case SHOW_SUBSCRIPTION_RESULT: {
-		//
-		// }
-		//
-		// case SHOW_SURVEY_POPUP: {
-		//
-		// }
+
+	case SHOW_SURVEY_POPUP: {
+		return {
+			...state,
+			...hideAllPopups(),
+			isShowSurveyPopup: true,
+		}
+	}
 		//
 		// case SHOW_SURVEY_POPUP_RESULT: {
 		//
