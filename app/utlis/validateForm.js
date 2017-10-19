@@ -1,4 +1,4 @@
-const validate = requiredValues => (values, props) => {
+const validate = requiredValues => values => {
 	const errors = {}
 
 	requiredValues.forEach(item => {

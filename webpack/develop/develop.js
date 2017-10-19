@@ -1,6 +1,6 @@
 import webpack from 'webpack'
 import baseConfig from '../base'
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 export default {
 	...baseConfig,

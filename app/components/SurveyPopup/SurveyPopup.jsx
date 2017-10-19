@@ -38,7 +38,7 @@ export default class SurveyPopup extends PureComponent {
 	renderField = ({
 		input,
 		placeholder,
-		meta: { touched, error, warning }
+		meta: { touched, error }
 	}) => {
 		return <div className={s.SurveyPopup__field}>
 			<Textarea

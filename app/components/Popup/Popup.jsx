@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react'
 import {
 	string,
-	number,
-	bool,
-	array,
 	func,
 	node,
 } from 'prop-types'

@@ -37,7 +37,7 @@ export default class SubscriptionPopup extends PureComponent {
 		input,
 		required,
 		placeholder,
-		meta: { touched, error, warning }
+		meta: { touched, error }
  }) => {
 		return <div className={s.SubscriptionPopup__input}>
 			<Input
