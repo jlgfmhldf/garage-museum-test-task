@@ -47,7 +47,7 @@ export default class SubscriptionPopup extends PureComponent {
 				error={touched && !!error}
 				errorText={error}
 				onChange={input.onChange}
-				onInput={input.onInput}
+				onBlur={input.onBlur}
 			/>
 		</div>
 	}

@@ -18,12 +18,12 @@ export default class Input extends PureComponent {
 		errorText: string,
 		error: bool,
 		required: bool,
-		onInput: func,
+		onBlur: func,
 		onChange: func,
 	}
 
 	static defaultProps = {
-		onInput: noop,
+		onBlur: noop,
 		onChange: noop,
 		type: 'text'
 	}
@@ -37,7 +37,7 @@ export default class Input extends PureComponent {
 			required,
 			error,
 			errorText,
-			onInput,
+			onBlur,
 			onChange
 		} = this.props
 
@@ -51,7 +51,7 @@ export default class Input extends PureComponent {
 					name={name}
 					type={type}
 					placeholder={required ? `${placeholder}*`: placeholder}
-					onInput={onInput}
+					onBlur={onBlur}
 					onChange={onChange}
 				/>
 				{error && errorText && <span

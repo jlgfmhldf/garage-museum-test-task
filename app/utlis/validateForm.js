@@ -7,6 +7,14 @@ const validate = requiredValues => (values, props) => {
 		}
 	})
 
+	if (values.email) {
+		var regexpEmail = /.+@.+\..+/i
+
+		if (!regexpEmail.test(values.email)) {
+			errors.email = 'Невалидный email'
+		}
+	}
+
 	return errors
 }
 
