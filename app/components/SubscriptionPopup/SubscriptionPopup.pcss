@@ -8,6 +8,11 @@
 .SubscriptionPopup__inputs {
 	display: flex;
 	margin-bottom: 4px;
+	
+	@media (--mobile) {
+		flex-direction: column;
+		margin-bottom: 0;
+	}
 }
 
 .SubscriptionPopup__input {
@@ -16,6 +21,10 @@
 	
 	&:not(:last-child) {
 		margin-right: 48px;
+	}
+	
+	@media (--mobile) {
+		margin-bottom: 24px;
 	}
 }
 
@@ -29,10 +38,18 @@
 	font-family: var(--helveticaNeueCyr);
 	line-height: 1.42;
 	color: #999;
+	
+	@media (--mobile) {
+		margin-top: 16px;
+	}
 }
 
 .SubscriptionPopup__divider {
 	margin-y: 38px 39px;
+	
+	@media (--mobile) {
+		margin-y: 33px 36px;
+	}
 }
 
 .SubscriptionPopup__button {

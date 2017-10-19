@@ -10,7 +10,6 @@
 	position: relative;
 	padding-left: 40px;
 	display: flex;
-	align-items: flex-end;
 	height: 24px;
 	font-size: 14px;
 	line-height: 1;
@@ -54,9 +53,14 @@
 
 .Checkbox__content {
 	display: block;
+	margin-top: 7px;
 	font-size: 17px;
+	line-height: 1.333;
 	text-align: left;
 	color: #4d4d4d;
 	font-family: var(--helveticaNeueCyr);
-	line-height: 1;
+	
+	@media (--mobile) {
+		font-size: 15px;
+	}
 }
