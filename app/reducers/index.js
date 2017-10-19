@@ -1,12 +1,8 @@
-const defaultState = {
-}
+import { combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form'
+import popups from './popups'
 
-/* eslint-disable no-unused-vars */
-export default function (state = defaultState, { type, payload }) {
-	switch (type) {
-	default:
-		return {
-			...state
-		}
-	}
-}
+export default combineReducers({
+	popups,
+	form: formReducer,
+})

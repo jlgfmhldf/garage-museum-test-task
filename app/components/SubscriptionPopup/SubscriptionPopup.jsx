@@ -31,11 +31,13 @@ export default class SubscriptionPopup extends PureComponent {
 	static propTypes = {
 		onClose: func,
 		onSubmit: func,
+		submitFunc: func,
 	}
 
 	static defaultProps = {
 		onClose: noop,
 		onSubmit: noop,
+		submitFunc: noop,
 	}
 
 	renderField = ({
@@ -72,11 +74,11 @@ export default class SubscriptionPopup extends PureComponent {
 
 	render() {
 		const {
-			valid,
 			invalid,
 			onClose,
 			onSubmit,
 			handleSubmit,
+			submitFunc,
 		} = this.props
 
 		const submit = (values, test) => {
@@ -89,7 +91,7 @@ export default class SubscriptionPopup extends PureComponent {
 					onClose={onClose}
 					title='подписка на рассылку музея «гараж»'
 				>
-					<form onSubmit={handleSubmit(submit)}>
+					<form onSubmit={handleSubmit(submitFunc)}>
 						<div className={s.SubscriptionPopup__inputs}>
 							<div className={s.SubscriptionPopup__input}>
 								<Field

@@ -15,11 +15,11 @@ export default class Popup extends PureComponent {
 	static propTypes = {
 		title: string,
 		children: node,
-		onClose: node,
+		onClose: func,
 	}
 
 	static defaultProps = {
-		onClose: func,
+		onClose: noop,
 	}
 
 	render() {
