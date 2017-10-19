@@ -94,27 +94,29 @@ export default class SubscriptionPopup extends PureComponent {
 								type='email'
 							/>
 						</div>
-						<Field
-							component={this.renderCheckbox}
-							text='Еженедельная рассылка Музея «Гараж»'
-							id={1}
-							type='checkbox'
-							name='checkbox1'
-						/>
-						<Field
-							component={this.renderCheckbox}
-							text='События для детей'
-							id={2}
-							type='checkbox'
-							name='checkbox2'
-						/>
-						<Field
-							component={this.renderCheckbox}
-							text='Другие события'
-							id={3}
-							type='checkbox'
-							name='checkbox3'
-						/>
+						<div className={s.SubscriptionPopup__checkboxes}>
+							<Field
+								component={this.renderCheckbox}
+								text='Еженедельная рассылка Музея «Гараж»'
+								id={1}
+								type='checkbox'
+								name='checkbox1'
+							/>
+							<Field
+								component={this.renderCheckbox}
+								text='События для детей'
+								id={2}
+								type='checkbox'
+								name='checkbox2'
+							/>
+							<Field
+								component={this.renderCheckbox}
+								text='Другие события'
+								id={3}
+								type='checkbox'
+								name='checkbox3'
+							/>
+						</div>
 						<div className={s.SubscriptionPopup__grayText}>
 							* Поля со звездочкой обязательны для заполнения
 						</div>

@@ -20,8 +20,12 @@
 	text-align: left;
 	color: #262626;
 	
+	@media (--tablet) {
+		padding-bottom: 17px;
+	}
+	
 	@media (--mobile) {
-		padding: 27px 20px;
+		padding: 23px 20px;
 	}
 }
 
@@ -29,7 +33,7 @@
 	padding: 40px 48px;
 	
 	@media (--mobile) {
-		padding: 36px 20px;
+		padding: 35px 20px;
 	}
 }
 
@@ -55,6 +59,11 @@
 	
 	&::after {
 		transform: rotate(-45deg) translate(25px, -14px);
+	}
+	
+	@media (--tablet) {
+		top: 28px;
+		right: 32px;
 	}
 	
 	@media (--mobile) {

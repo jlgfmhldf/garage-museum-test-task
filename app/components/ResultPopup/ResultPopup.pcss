@@ -12,6 +12,10 @@
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
+	
+	@media (--mobile) {
+		margin-y: 0;
+	}
 }
 
 .ResultPopup__title {
@@ -22,6 +26,10 @@
 	line-height: 1.14;
 	text-align: center;
 	color: #3d3d3d;
+	
+	@media (--tablet) {
+		margin-y: 21px 11px;
+	}
 }
 
 .ResultPopup__text {
@@ -33,6 +41,11 @@
 	
 	* {
 		margin: 0;
+	}
+	
+	@media (--tablet) {
+		font-size: 15px;
+		margin-bottom: 16px;
 	}
 }
 
@@ -46,7 +59,7 @@
 
 .ResultPopup__tick {
 	position: absolute;
-	top: 14px;
-	left: 10px;
+	top: 15px;
+	left: 12px;
 }
 

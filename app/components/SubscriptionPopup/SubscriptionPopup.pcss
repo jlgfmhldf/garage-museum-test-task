@@ -30,17 +30,27 @@
 
 .SubscriptionPopup__checkbox {
 	margin-top: 25px;
+	
+	@media (--mobile) {
+		margin-top: 0;
+		margin-bottom: 20px;
+		
+		&:last-of-type{
+			margin-bottom: 0
+		}
+	}
 }
 
 .SubscriptionPopup__grayText {
 	margin-top: 25px;
 	font-size: 12px;
 	font-family: var(--helveticaNeueCyr);
-	line-height: 1.42;
+	line-height: 1.5;
 	color: #999;
 	
 	@media (--mobile) {
-		margin-top: 16px;
+		margin-top: 14px;
+		font-size: 10px;
 	}
 }
 
@@ -48,7 +58,7 @@
 	margin-y: 35px 39px;
 	
 	@media (--mobile) {
-		margin-y: 33px 36px;
+		margin-y: 29px 36px;
 	}
 }
 
