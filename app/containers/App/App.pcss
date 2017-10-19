@@ -1,0 +1,41 @@
+@import '../../styles/variables.pcss'
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.App {
+	background: rgba(0, 0, 0, .6);
+	display: flex;
+	min-height: 100vh;
+}
+
+.App__bigPopup,
+.App__smallPopup {
+	margin: auto;
+}
+
+.App__bigPopup {
+	width: 816px;
+	
+	@media (--tablet) {
+		width: 552px;
+	}
+	
+	@media (--mobile) {
+		width: 100%;
+	}
+}
+
+.App__smallPopup {
+	width: 624px;
+	
+	@media (--tablet) {
+		width: 552px;
+	}
+	
+	@media (--mobile) {
+		width: 100%;
+	}
+}

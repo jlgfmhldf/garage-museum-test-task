@@ -37,7 +37,6 @@ export default class App extends PureComponent {
 			isShowSubscriptionResult,
 			isShowSurveyPopup,
 			isShowSurveyResult,
-			showSubscriptionPopup,
 			showSubscriptionPopupResult,
 			showSurveyPopup,
 			showSurveyPopupResult,
@@ -45,11 +44,13 @@ export default class App extends PureComponent {
 
 		return (
 			<div className={s.App}>
-				<div className={s.App__popup}>
-					{isShowSubscriptionPopup && <SubscriptionPopup
+				{isShowSubscriptionPopup && <div className={s.App__bigPopup}>
+					<SubscriptionPopup
 						onSubmit={showSubscriptionPopupResult}
-					/>}
-					{isShowSubscriptionResult && <ResultPopup
+					/>
+				</div>}
+				{isShowSubscriptionResult && <div className={s.App__smallPopup}>
+					<ResultPopup
 						popupTitle='подписка на рассылку музея “гараж”'
 						title='Подписка оформлена!'
 						text={
@@ -59,17 +60,21 @@ export default class App extends PureComponent {
 						}
 						buttonText='Пройти опрос'
 						onClick={showSurveyPopup}
-					/>}
-					{isShowSurveyPopup && <SurveyPopup
+					/>
+				</div>}
+				{isShowSurveyPopup && <div className={s.App__bigPopup}>
+					<SurveyPopup
 						onSubmit={showSurveyPopupResult}
-					/>}
-					{isShowSurveyResult && <ResultPopup
+					/>
+				</div>}
+				{isShowSurveyResult && <div className={s.App__smallPopup}>
+					<ResultPopup
 						popupTitle='подписка на рассылку музея “гараж”'
 						title='Анкета отправлена!'
 						text='Спасибо за участие, к вам на почту придет письмо с деталями вашей скидки'
 						buttonText='Закрыть'
-					/>}
-				</div>
+					/>
+				</div>}
 			</div>
 		)
 	}

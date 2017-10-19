@@ -22,8 +22,11 @@
 }
 
 .Popup__content {
-	padding-y: 40px;
-	padding-x: 48px;
+	padding: 40px 48px;
+	
+	@media (--mobile) {
+		padding: 36px 20px;
+	}
 }
 
 .Popup__close {

@@ -70,7 +70,14 @@ module.exports = {
 			test: /\.pcss$/,
 			use: ExtractTextPlugin.extract({
 				use: [
-					'css-loader?modules',
+					{
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+							modules: true,
+							localIdentName: '[local]'
+						}
+					},
 					'postcss-loader',
 				]
 			}),
