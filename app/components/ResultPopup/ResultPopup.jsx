@@ -3,7 +3,7 @@ import {
 	string,
 	func,
 	node,
-	oneOfType,
+	oneOf,
 } from 'prop-types'
 import noop from 'noop3'
 import cn from 'classnames'
@@ -20,7 +20,7 @@ export default class ResultPopup extends PureComponent {
 		title: string,
 		text: node,
 		buttonText: string,
-		icon: oneOfType([
+		icon: oneOf([
 			'success',
 			'error',
 		]),
