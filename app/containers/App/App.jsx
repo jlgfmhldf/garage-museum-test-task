@@ -14,7 +14,6 @@ import {
 	showSurveyPopupResult,
 } from '../../actions/index'
 
-/* eslint-disable no-unused-vars */
 const mapStateToProps = ({ popups }) => ({
 	isShowSubscriptionPopup: popups.isShowSubscriptionPopup,
 	isShowSubscriptionResult: popups.isShowSubscriptionResult,
@@ -47,7 +46,7 @@ export default class App extends PureComponent {
 		return (
 			<div className={s.App}>
 				<div className={s.App__popup}>
-					{isShowSubscriptionPopup && <SubscriptionPopup
+					{false && <SubscriptionPopup
 						submitFunc={this.props.showSubscriptionPopupResult}
 					/>}
 					{isShowSubscriptionResult && <ResultPopup
@@ -61,7 +60,7 @@ export default class App extends PureComponent {
 						buttonText='Пройти опрос'
 						onClick={showSurveyPopup}
 					/>}
-					{isShowSurveyPopup && <SurveyPopup />}
+					{true && <SurveyPopup />}
 					{isShowSurveyResult && <ResultPopup
 						popupTitle='подписка на рассылку музея “гараж”'
 						title='Анкета отправлена!'

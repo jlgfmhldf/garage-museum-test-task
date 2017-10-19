@@ -30,10 +30,15 @@ export default class Input extends PureComponent {
 
 	render() {
 		const {
-			value, placeholder, name, type,
+			value,
+			placeholder,
+			name,
+			type,
 			required,
-			error, errorText,
-			onInput, onChange
+			error,
+			errorText,
+			onInput,
+			onChange
 		} = this.props
 
 		return (

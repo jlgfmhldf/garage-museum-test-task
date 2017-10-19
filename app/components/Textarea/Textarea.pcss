@@ -3,6 +3,10 @@
 
 .Textarea {
 	display: block;
+}
+
+.Textarea__textarea {
+	display: block;
 	width: 100%;
 	padding: 15px 12px;
 	border: solid 1px #ccc;
@@ -20,4 +24,18 @@
 		border-color: #212121;
 		outline: none;
 	}
+	
+	&_error {
+		border-color: var(--red);
+	}
+}
+
+.Textarea__errorText {
+	display: block;
+	margin-top: 8px;
+	font-family: sans-serif; /* TODO */
+	font-size: 15px;
+	line-height: 1.33;
+	text-align: right;
+	color: var(--red);
 }

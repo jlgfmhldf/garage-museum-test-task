@@ -1,13 +1,11 @@
 import React, { PureComponent } from 'react'
 import {
-	string,
-	number,
-	bool,
-	array,
 	func,
-	node,
 } from 'prop-types'
 import noop from 'noop3'
+import { Field, reduxForm } from 'redux-form'
+
+import validate from '../../utlis/validateForm'
 
 import Popup from '../../components/Popup'
 import NumberText from '../../components/NumberText'
@@ -17,35 +15,74 @@ import Button from '../../components/Button'
 
 import s from './SurveyPopup.pcss'
 
+const requiredValues = [
+	'question1',
+	'question2',
+]
+
+@reduxForm({
+	form: 'survey',
+	validate: validate(requiredValues),
+})
+
 export default class SurveyPopup extends PureComponent {
 	static propTypes = {
 		onSubmit: func,
+		handleSubmit: func,
 	}
 
 	static defaultProps = {
 		onSubmit: noop,
 	}
 
+	renderField = ({
+		input,
+		placeholder,
+		meta: { touched, error, warning }
+	}) => {
+		return <div className={s.SurveyPopup__field}>
+			<Textarea
+				placeholder={placeholder}
+				name={name}
+				error={touched && !!error}
+				errorText={error}
+				onChange={input.onChange}
+				onInput={input.onInput}
+				onBlur={input.onBlur}
+			/>
+		</div>
+	}
+
 	render() {
 		const {
+			invalid,
 			onSubmit,
+			handleSubmit,
 		} = this.props
+
+		const submit = (values, test) => {
+			console.log('values', values)
+		}
+
 
 		return (
 			<div className={ s.SurveyPopup }>
 				<Popup
 					title='подписка на рассылку музея «гараж»'
 				>
-					<form action="">
+					<form onSubmit={handleSubmit(submit)}>
 						<div className={s.SurveyPopup__formItem}>
 							<div className={s.SurveyPopup__question}>
 								<NumberText number={1}>
 									Why not try removing some filters or searching by a different keyword in the field above?
 								</NumberText>
 							</div>
-							<div className={s.SurveyPopup__field}>
-								<Textarea placeholder='Ваш ответ'/>
-							</div>
+							<Field
+								placeholder='Ваш ответ'
+								component={this.renderField}
+								name='question1'
+								type='textarea'
+							/>
 						</div>
 
 						<div className={s.SurveyPopup__formItem}>
@@ -54,9 +91,12 @@ export default class SurveyPopup extends PureComponent {
 									Why not try removing some filters?
 								</NumberText>
 							</div>
-							<div className={s.SurveyPopup__field}>
-								<Textarea placeholder='Ваш ответ'/>
-							</div>
+							<Field
+								placeholder='Ваш ответ'
+								component={this.renderField}
+								name='question2'
+								type='textarea'
+							/>
 						</div>
 
 						<div className={s.SurveyPopup__divider}>
@@ -66,6 +106,7 @@ export default class SurveyPopup extends PureComponent {
 						<div className={s.SurveyPopup__button}>
 							<Button
 								type='submit'
+								disabled={invalid}
 								onClick={onSubmit}
 							>
 								Отправить

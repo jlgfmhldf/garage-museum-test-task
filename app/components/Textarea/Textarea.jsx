@@ -1,11 +1,8 @@
 import React, { PureComponent } from 'react'
 import {
 	string,
-	number,
 	bool,
-	array,
 	func,
-	node,
 } from 'prop-types'
 import noop from 'noop3'
 
@@ -15,26 +12,46 @@ export default class Textarea extends PureComponent {
 	static propTypes = {
 		value: string,
 		placeholder: string,
-		onInput: func,
+		name: string,
+		errorText: string,
+		error: bool,
+		onChange: func,
+		onBlur: func,
 	}
 
 	static defaultProps = {
-		onInput: noop,
+		onChange: noop,
+		onBlur: noop,
 	}
 
 	render() {
 		const {
 			value,
-			placeholder
+			name,
+			placeholder,
+			error,
+			errorText,
+			onChange,
+			onBlur,
 		} = this.props
 
 		return (
-			<textarea
-				className={s.Textarea}
-				placeholder={placeholder}
-			>
-				{value}
-			</textarea>
+			<div className={s.Textarea}>
+				<textarea
+					className={s.Textarea__textarea}
+					placeholder={placeholder}
+					name={name}
+					onBlur={onBlur}
+					onChange={onChange}
+				>
+					{value}
+				</textarea>
+				{error && errorText && <span
+					className={s.Textarea__errorText}
+				>
+					{errorText}
+				</span>}
+			</div>
 		)
 	}
 }

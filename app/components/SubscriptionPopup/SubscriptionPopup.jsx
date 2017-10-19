@@ -1,11 +1,6 @@
 import React, { PureComponent } from 'react'
 import {
-	string,
-	number,
-	bool,
-	array,
 	func,
-	node,
 } from 'prop-types'
 import noop from 'noop3'
 import { Field, reduxForm } from 'redux-form'
@@ -48,15 +43,17 @@ export default class SubscriptionPopup extends PureComponent {
 		placeholder,
 		meta: { touched, error, warning }
  }) => {
-		return <Input
-			placeholder={placeholder}
-			required={required}
-			name={name}
-			error={touched && !!error}
-			errorText={error}
-			onChange={input.onChange}
-			onInput={input.onInput}
-		/>
+		return <div className={s.SubscriptionPopup__input}>
+			<Input
+				placeholder={placeholder}
+				required={required}
+				name={name}
+				error={touched && !!error}
+				errorText={error}
+				onChange={input.onChange}
+				onInput={input.onInput}
+			/>
+		</div>
 	}
 
 	renderCheckbox = ({ text, id, input }) => {
@@ -69,7 +66,6 @@ export default class SubscriptionPopup extends PureComponent {
 				{text}
 			</Checkbox>
 		</div>
-
 	}
 
 	render() {
@@ -81,10 +77,6 @@ export default class SubscriptionPopup extends PureComponent {
 			submitFunc,
 		} = this.props
 
-		const submit = (values, test) => {
-			console.log('values', values)
-		}
-
 		return (
 			<div className={s.SubscriptionPopup}>
 				<Popup
@@ -93,23 +85,19 @@ export default class SubscriptionPopup extends PureComponent {
 				>
 					<form onSubmit={handleSubmit(submitFunc)}>
 						<div className={s.SubscriptionPopup__inputs}>
-							<div className={s.SubscriptionPopup__input}>
-								<Field
-									name='name'
-									placeholder='Ваше имя'
-									component={this.renderField}
-									type='text'
-									required
-								/>
-							</div>
-							<div className={s.SubscriptionPopup__input}>
-								<Field
-									name='email'
-									placeholder='Ваш e-mail'
-									component={this.renderField}
-									type='email'
-								/>
-							</div>
+							<Field
+								name='name'
+								placeholder='Ваше имя'
+								component={this.renderField}
+								type='text'
+								required
+							/>
+							<Field
+								name='email'
+								placeholder='Ваш e-mail'
+								component={this.renderField}
+								type='email'
+							/>
 						</div>
 						<Field
 							component={this.renderCheckbox}
