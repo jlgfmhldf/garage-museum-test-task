@@ -9,7 +9,7 @@
     "start": "node server.js",
     "build": "NODE_ENV=production webpack --config ./webpack/production",
     "lint": "eslint .",
-    "gh-pages": "node gh-pages",
+    "gh-pages": "yarn build && node gh-pages",
     "lint:changed": "eslint `git diff --name-status $(git merge-base origin/master HEAD)..HEAD | grep -E '^[AMR]' | awk ' {print $2} ' | grep -E '\\.js$'`",
     "lint:fix": "eslint --ext .js --ext .jsx --fix ./",
     "storybook": "start-storybook -p 6006",
