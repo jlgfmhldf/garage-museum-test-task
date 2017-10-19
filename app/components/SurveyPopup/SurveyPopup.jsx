@@ -60,17 +60,12 @@ export default class SurveyPopup extends PureComponent {
 			handleSubmit,
 		} = this.props
 
-		const submit = (values, test) => {
-			console.log('values', values)
-		}
-
-
 		return (
-			<div className={ s.SurveyPopup }>
+			<div className={s.SurveyPopup}>
 				<Popup
 					title='подписка на рассылку музея «гараж»'
 				>
-					<form onSubmit={handleSubmit(submit)}>
+					<form onSubmit={handleSubmit(onSubmit)}>
 						<div className={s.SurveyPopup__formItem}>
 							<div className={s.SurveyPopup__question}>
 								<NumberText number={1}>

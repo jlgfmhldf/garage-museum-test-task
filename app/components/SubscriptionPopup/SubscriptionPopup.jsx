@@ -26,19 +26,15 @@ export default class SubscriptionPopup extends PureComponent {
 	static propTypes = {
 		onClose: func,
 		onSubmit: func,
-		submitFunc: func,
 	}
 
 	static defaultProps = {
 		onClose: noop,
 		onSubmit: noop,
-		submitFunc: noop,
 	}
 
 	renderField = ({
 		input,
-		label,
-		type,
 		required,
 		placeholder,
 		meta: { touched, error, warning }
@@ -74,7 +70,6 @@ export default class SubscriptionPopup extends PureComponent {
 			onClose,
 			onSubmit,
 			handleSubmit,
-			submitFunc,
 		} = this.props
 
 		return (
@@ -83,7 +78,7 @@ export default class SubscriptionPopup extends PureComponent {
 					onClose={onClose}
 					title='подписка на рассылку музея «гараж»'
 				>
-					<form onSubmit={handleSubmit(submitFunc)}>
+					<form onSubmit={handleSubmit(onSubmit)}>
 						<div className={s.SubscriptionPopup__inputs}>
 							<Field
 								name='name'
