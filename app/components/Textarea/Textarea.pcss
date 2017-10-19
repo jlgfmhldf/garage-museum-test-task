@@ -2,6 +2,7 @@
 @import '../../styles/fonts.pcss';
 
 .Textarea {
+	position: relative;
 	display: block;
 }
 
@@ -31,9 +32,11 @@
 }
 
 .Textarea__errorText {
+	position: absolute;
+	bottom: -26px;
+	right: 0;
 	display: block;
-	margin-top: 8px;
-	font-family: sans-serif; /* TODO */
+	font-family: var(--helveticaNeueCyr);
 	font-size: 15px;
 	line-height: 1.33;
 	text-align: right;
