@@ -51,10 +51,10 @@ export default class App extends PureComponent {
 				</div>}
 				{isShowSubscriptionResult && <div className={s.App__smallPopup}>
 					<ResultPopup
-						popupTitle='подписка на рассылку музея “гараж”'
+						popupTitle='подписка на рассылку музея «гараж»'
 						title='Подписка оформлена!'
 						text={
-							<p>Спасибо за то, что подписались на рассылку Музея «Гараж»!
+							<p>Спасибо за&nbsp;то, что подписались на&nbsp;рассылку Музея&nbsp;&laquo;Гараж&raquo;!<br/>
 								<b>Пройдите короткий опрос, чтобы получить скидку.</b>
 							</p>
 						}
