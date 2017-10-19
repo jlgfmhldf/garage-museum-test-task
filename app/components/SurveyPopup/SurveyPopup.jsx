@@ -82,7 +82,7 @@ export default class SurveyPopup extends PureComponent {
 
 						<div className={s.SurveyPopup__formItem}>
 							<div className={s.SurveyPopup__question}>
-								<NumberText number={1}>
+								<NumberText number={2}>
 									Why not try removing some filters?
 								</NumberText>
 							</div>
